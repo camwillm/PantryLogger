@@ -29,12 +29,41 @@
 		131C1E832E17D2300031384E /* PantryLoggerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PantryLoggerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		131C1E6E2E17D22F0031384E /* PantryLogger */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PantryLogger;
-			sourceTree = "<group>";
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		131C1EC52E17D3F40031384E /* Exceptions for "PantryLogger" folder in "PantryLogger" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				ContentView.swift,
+				Models/PantryItemModel.swift,
+				Models/SampleData.swift,
+				PantryLoggerApp.swift,
+				Utils/CodeHelpers.swift,
+				ViewModels/PantryViewModel.swift,
+				Views/AddItemView.swift,
+				Views/EditItemView.swift,
+				Views/HomeView.swift,
+				Views/ItemDetailView.swift,
+			);
+			target = 131C1E6B2E17D22F0031384E /* PantryLogger */;
 		};
+		131C1EDF2E19E0F30031384E /* Exceptions for "PantryLogger" folder in "PantryLoggerUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/PantryItemModel.swift,
+				Models/SampleData.swift,
+				Utils/CodeHelpers.swift,
+				ViewModels/PantryViewModel.swift,
+				Views/AddItemView.swift,
+				Views/EditItemView.swift,
+				Views/HomeView.swift,
+				Views/ItemDetailView.swift,
+			);
+			target = 131C1E822E17D2300031384E /* PantryLoggerUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
 		131C1E7C2E17D2300031384E /* PantryLoggerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = PantryLoggerTests;
@@ -43,6 +72,15 @@
 		131C1E862E17D2300031384E /* PantryLoggerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = PantryLoggerUITests;
+			sourceTree = "<group>";
+		};
+		131C1EBE2E17D3F40031384E /* PantryLogger */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				131C1EC52E17D3F40031384E /* Exceptions for "PantryLogger" folder in "PantryLogger" target */,
+				131C1EDF2E19E0F30031384E /* Exceptions for "PantryLogger" folder in "PantryLoggerUITests" target */,
+			);
+			path = PantryLogger;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,7 +113,7 @@
 		131C1E632E17D22F0031384E = {
 			isa = PBXGroup;
 			children = (
-				131C1E6E2E17D22F0031384E /* PantryLogger */,
+				131C1EBE2E17D3F40031384E /* PantryLogger */,
 				131C1E7C2E17D2300031384E /* PantryLoggerTests */,
 				131C1E862E17D2300031384E /* PantryLoggerUITests */,
 				131C1E6D2E17D22F0031384E /* Products */,
@@ -106,9 +144,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				131C1E6E2E17D22F0031384E /* PantryLogger */,
 			);
 			name = PantryLogger;
 			packageProductDependencies = (
@@ -155,6 +190,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				131C1E862E17D2300031384E /* PantryLoggerUITests */,
+				131C1EBE2E17D3F40031384E /* PantryLogger */,
 			);
 			name = PantryLoggerUITests;
 			packageProductDependencies = (
