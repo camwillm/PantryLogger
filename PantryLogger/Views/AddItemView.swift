@@ -4,7 +4,6 @@
 //
 //  Created by Cameron Williams on 7/6/25.
 //
-
 import SwiftUI
 
 struct AddItemView: View {
@@ -13,7 +12,7 @@ struct AddItemView: View {
 
     @State private var name = ""
     @State private var brand = ""
-    @State private var category = "Other"
+    @State private var category = ""
     @State private var ingredients = ""
     @State private var calories = ""
     @State private var protein = ""
@@ -25,6 +24,8 @@ struct AddItemView: View {
     @State private var location: StorageType = .fridge
     @State private var expirationDate = Date()
 
+    @State private var showScanner = false
+
     let categoryOptions = [
         "Beverage → Juice", "Dairy", "Snacks", "Produce",
         "Meat", "Seafood", "Frozen", "Grains",
@@ -34,16 +35,27 @@ struct AddItemView: View {
     var body: some View {
         NavigationView {
             Form {
+                Section(header: Text("Barcode")) {
+                    HStack {
+                        TextField("Barcode", text: $barcode)
+                        Button(action: {
+                            showScanner = true
+                        }) {
+                            Image(systemName: "barcode.viewfinder")
+                                .font(.title2)
+                        }
+                        .padding(.leading, 5)
+                    }
+                }
+
                 Section(header: Text("Basic Info")) {
                     TextField("Name", text: $name)
                     TextField("Brand", text: $brand)
-
                     Picker("Category", selection: $category) {
-                        ForEach(categoryOptions, id: \.self) { option in
-                            Text(option).tag(option)
+                        ForEach(categoryOptions, id: \.self) {
+                            Text($0)
                         }
                     }
-
                     Picker("Storage", selection: $location) {
                         ForEach(StorageType.allCases) { type in
                             Text(type.rawValue.capitalized).tag(type)
@@ -62,7 +74,6 @@ struct AddItemView: View {
                 Section(header: Text("Price & Expiration")) {
                     TextField("Price", text: $price).keyboardType(.decimalPad)
                     DatePicker("Expiration Date", selection: $expirationDate, displayedComponents: .date)
-                    TextField("Barcode", text: $barcode)
                 }
 
                 Section(header: Text("Ingredients")) {
@@ -99,6 +110,29 @@ struct AddItemView: View {
                     Button("Cancel") { dismiss() }
                 }
             }
+            .sheet(isPresented: $showScanner) {
+                BarcodeScannerView { scannedCode in
+                    barcode = scannedCode
+                    autofillData(for: scannedCode)
+                    showScanner = false
+                }
+            }
+        }
+    }
+
+    private func autofillData(for barcode: String) {
+        // Replace this stub with real API lookup or database fetch.
+        if barcode == "0123456789012" {
+            name = "Tropicana 100% Orange Juice"
+            brand = "Tropicana"
+            category = "Beverage → Juice"
+            ingredients = "Orange juice"
+            calories = "110"
+            protein = "2"
+            carbs = "26"
+            fat = "0"
+            servings = "8"
+            price = "3.99"
         }
     }
 }

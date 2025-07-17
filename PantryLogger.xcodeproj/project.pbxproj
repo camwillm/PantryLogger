@@ -37,13 +37,20 @@
 				ContentView.swift,
 				Models/PantryItemModel.swift,
 				Models/SampleData.swift,
+				Models/Untitled.swift,
 				PantryLoggerApp.swift,
+				Themes/ColorThemeProtocol.swift,
+				Themes/ColorThemes.swift,
+				Themes/ThemeManager.swift,
+				Themes/ThemeType.swift,
 				Utils/CodeHelpers.swift,
 				ViewModels/PantryViewModel.swift,
 				Views/AddItemView.swift,
+				Views/BarcodeScannerView.swift,
 				Views/EditItemView.swift,
 				Views/HomeView.swift,
 				Views/ItemDetailView.swift,
+				Views/PantryItemRow.swift,
 			);
 			target = 131C1E6B2E17D22F0031384E /* PantryLogger */;
 		};
@@ -52,12 +59,18 @@
 			membershipExceptions = (
 				Models/PantryItemModel.swift,
 				Models/SampleData.swift,
+				Models/Untitled.swift,
+				Themes/ColorThemeProtocol.swift,
+				Themes/ColorThemes.swift,
+				Themes/ThemeType.swift,
 				Utils/CodeHelpers.swift,
 				ViewModels/PantryViewModel.swift,
 				Views/AddItemView.swift,
+				Views/BarcodeScannerView.swift,
 				Views/EditItemView.swift,
 				Views/HomeView.swift,
 				Views/ItemDetailView.swift,
+				Views/PantryItemRow.swift,
 			);
 			target = 131C1E822E17D2300031384E /* PantryLoggerUITests */;
 		};

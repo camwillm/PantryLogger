@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct PantryLoggerApp: App {
+    @StateObject private var themeManager = ThemeManager()
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environmentObject(themeManager)
         }
     }
 }
